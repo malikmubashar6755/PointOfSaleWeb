@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary">Customers List</h2>
+        <button class="btn btn-outline-primary mb-3" routerLink="/create-new-customer"><i class="bi bi-plus-circle"></i>
+            Create New Customer
+        </button>
+    </div>
+    <table class="table table-hover custom-table">
+        <thead class="custom-thead">
+            <tr>
+                <th>Sr</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>PhoneNo</th>
+                <th>Address</th>
+                <th>Is Ative</th>
+                <th>Created By</th>
+                <th>Created At</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customers | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }; let i = index">
+                <td>{{customer.CustomerId}}</td>
+                <td>{{ customer.CustomerName }}</td>
+                <td>{{ customer.CustomerEmail }}</td>
+                <td>{{ customer.PhoneNumber }}</td>
+                <td>{{ customer.CustomerAddress }}</td>
+                <td>
+                  <span class="badge" [ngClass]="{'bg-success': customer.IsActive, 'bg-danger': !customer.IsActive}">
+                    {{ customer.IsActive ? 'Active' : 'InActive' }}
+                  </span>
+                </td>
+                <td>{{ customer.Created_by }}</td>
+                <td>{{ customer.Created_dte | date:'yyyy-MM-dd' }}</td>
+                <td>
+                  <button class="btn btn-outline-primary mx-2" [routerLink]="['/customers/edit', customer.CustomerId]"><i class="bi bi-pencil-square"></i> Edit</button>
+                  <button class="btn btn-outline-danger" (click)="deleteCustomer(customer.CustomerId)"><i class="bi bi-trash"></i> Delete</button>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-end mt-3">
+        <pagination-controls
+        (pageChange)="currentPage = $event"
+        previousLabel="Previous"
+        nextLabel="Next">
+      </pagination-controls>
+    </div>
+</div>

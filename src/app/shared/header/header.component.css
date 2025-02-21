@@ -1,0 +1,14 @@
+#navbar {
+    background-color: #f0f0f0; 
+}
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+    color: #007bff;
+}
+.dropdown-item {
+    font-size: 0.9rem; /* Smaller font size */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dropdown-toggle:hover{
+    color: #007bff;
+}

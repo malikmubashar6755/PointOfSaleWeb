@@ -1,0 +1,38 @@
+<div class="containercat">
+    <h2 class="text-primary text-center mb-4">{{ isEditMode ? 'Update Category' : 'Create New Category' }}</h2>
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+        <!-- Row for two columns -->
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="CategoryName" placeholder="Enter Category Name" formControlName="categoryName">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <textarea class="form-control" id="CategoryDescription" placeholder="Enter Description" formControlName="categoryDescription"
+                        rows="1"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Checkbox for IsActive -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <div class="form-check custom-checkbox">
+                    <input type="checkbox" class="form-check-input custom-check" id="IsActive" name="IsActive" formControlName="categoryIsActive">
+                    <label class="form-check-label fw-bold text-primary" for="IsActive">Is Active</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Submit button -->
+        <div class="row text-md-end">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-outline-primary me-3"><i class="bi bi-save"></i> {{ isEditMode ?
+                    'Update Category' : 'Save Category' }}</button>
+                <button type="submit" class="btn btn-outline-secondary" routerLink="/categories"><i
+                        class="bi bi-arrow-left-circle"></i> Back to Category</button>
+            </div>
+        </div>
+    </form>
+</div>

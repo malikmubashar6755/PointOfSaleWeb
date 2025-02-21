@@ -1,0 +1,30 @@
+<nav id="sidebar" class="border-end shadow" [ngStyle]="{ width: isSidebarOpen ? '220px' : '60px' }">
+  <div class="p-4">
+    <!-- Arrow Button -->
+    <button class="btn btn-sm btn-light mb-3" (click)="toggleSidebar()">
+      <i [ngClass]="isSidebarOpen ? 'fas fa-arrow-left' : 'fas fa-arrow-right'"></i>
+    </button>
+
+    <!-- Sidebar Links -->
+    <ul class="list-unstyled" [class.collapsed]="!isSidebarOpen">
+      <li routerLinkActive="active">
+        <a routerLink="/dashboard" class="text-decoration-none d-block py-2 px-3 rounded mb-3 hover-effect text-dark">Dashboard</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/products" class="text-decoration-none d-block py-2 px-3 rounded mb-3 hover-effect text-dark">Products</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/customers" class="text-decoration-none d-block py-2 px-3 rounded mb-3 hover-effect text-dark">Customers</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/categories" class="text-decoration-none d-block py-2 px-3 rounded mb-3 hover-effect text-dark">Categories</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/sales" class="text-decoration-none d-block py-2 px-3 rounded mb-3 hover-effect text-dark">Sales</a>
+      </li>
+      <li>
+        <a href="#" class="text-decoration-none d-block py-2 px-3 rounded mb-3 hover-effect text-dark">Inventory</a>
+      </li>
+    </ul>
+  </div>
+</nav>

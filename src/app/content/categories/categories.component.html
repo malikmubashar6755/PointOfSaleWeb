@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-primary">Categories List</h2>
+    <button class="btn btn-outline-primary mb-3" routerLink="/create-new-category"><i class="bi bi-plus-circle"></i>
+      Create New Category
+    </button>
+  </div>
+  <table class="table table-bordered custom-table">
+    <thead class="custom-thead">
+      <tr>
+        <th>Sr</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Is Ative</th>
+        <th>Created By</th>
+        <th>Created At</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let category of categories | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }; let i = index">
+          <td>{{category.CategoryId}}</td>
+          <td>{{ category.CategoryName }}</td>
+          <td>{{ category.Description }}</td>
+          <td>
+            <span class="badge" [ngClass]="{'bg-success': category.IsActive, 'bg-danger': !category.IsActive}">
+              {{ category.IsActive ? 'Active' : 'InActive' }}
+            </span>
+          </td>
+          <td>{{ category.Created_by }}</td>
+          <td>{{ category.Created_dte | date:'yyyy-MM-dd' }}</td>
+          <td>
+            <button class="btn btn-outline-primary mx-2" [routerLink]="['/categoryy/edit', category.CategoryId]"><i class="bi bi-pencil-square"></i> Edit</button>
+            <button class="btn btn-outline-danger" (click)="deleteCategory(category.CategoryId)"><i class="bi bi-trash"></i> Delete</button>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-end mt-3">
+    <pagination-controls
+      (pageChange)="currentPage = $event"
+      previousLabel="Previous"
+      nextLabel="Next">
+    </pagination-controls>
+  </div>
+</div>

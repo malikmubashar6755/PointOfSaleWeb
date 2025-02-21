@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-primary">Product List</h2>
+    <button class="btn btn-outline-primary" routerLink="/create-new-product">
+      <i class="bi bi-plus-circle"></i> Create New Product
+    </button>
+  </div>
+    <table class="table table-bordered custom-table">
+      <thead class="custom-thead">
+        <tr>
+          <th>Sr No</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Stock Quantity</th>
+          <th>Category</th>
+          <th>Created By</th>
+          <th>Created At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }; let i = index">
+          <td>{{product.ProductId}}</td>
+          <td>{{ product.ProductName }}</td>
+          <td>{{ product.Price }}</td>
+          <td>{{ product.Stock_Quantity }}</td>
+          <td>{{ product.CategoryName }}</td>
+          <td>{{ product.Created_by }}</td>
+          <td>{{ product.Created_dte | date:'yyyy-MM-dd' }}</td>
+          <td>
+            <button class="btn btn-outline-primary mx-2" [routerLink]="['/products/edit', product.ProductId]"><i class="bi bi-pencil-square"></i> Edit</button>
+            <button class="btn btn-outline-danger" (click)="deleteProduct(product.ProductId)"><i class="bi bi-trash"></i> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-end mt-3">
+      <pagination-controls
+        (pageChange)="currentPage = $event"
+        previousLabel="Previous"
+        nextLabel="Next">
+      </pagination-controls>
+    </div>
+  </div>

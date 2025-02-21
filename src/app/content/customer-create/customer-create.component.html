@@ -1,0 +1,58 @@
+<div class="container">
+    <h2 class="text-primary text-center mb-4">{{ isEditMode ? 'Update Customer' : 'Create New Customer' }}</h2>
+    <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="customerName" placeholder="Enter Customer Name" formControlName="customerName">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="customerEmail" placeholder="Enter Customer Email" formControlName="customerEmail">
+
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="customerPhoneNum" placeholder="Enter Phone Number" formControlName="customerPhoneNum">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <textarea class="form-control" id="customerAddress" placeholder="Enter Customer Address" rows="1" formControlName="customerAddress"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Row for two columns -->
+        <!-- <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="customerCountry" placeholder="Enter Country Name" formControlName="customerCountry">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="customerState" placeholder="Enter State Name" formControlName="customerState">
+                </div>
+            </div>
+        </div> -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <div class="form-check custom-checkbox">
+                    <input type="checkbox" class="form-check-input custom-check" id="customerIsActive" name="IsActive" formControlName="customerIsActive">
+                    <label class="form-check-label fw-bold text-primary" for="IsActive">Is Active</label>
+                </div>
+            </div>
+        </div>
+        <!-- Submit button -->
+        <div class="row text-md-end">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-outline-primary me-3"><i class="bi bi-save"></i> {{ isEditMode ? 'Update Customer' : 'Save Customer' }}</button>
+                <button type="submit" class="btn btn-outline-secondary" routerLink="/customers"><i class="bi bi-arrow-left-circle"></i> Back to Customer</button>
+            </div>
+        </div>
+    </form>
+</div>

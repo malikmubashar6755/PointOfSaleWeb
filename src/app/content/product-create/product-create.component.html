@@ -1,0 +1,59 @@
+<div class="container">
+    <h2 class="text-primary text-center mb-4">{{ isEditMode ? 'Update Product' : 'Create New Product' }}</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <!-- Row for two columns -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="productName" placeholder="Enter Product Name" formControlName="productName">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Enter price" formControlName="price">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Full-width textarea -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <textarea class="form-control" id="productDescription" placeholder="Enter Description" rows="1" formControlName="productDescription"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <select class="form-control" id="productCategory" formControlName="productCategory">
+                        <option value="">Select a category</option>
+                        <option *ngFor="let category of categories" [value]="category.CategoryId">
+                            {{ category.CategoryName }}
+                          </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- Row for two columns -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="number" class="form-control" id="productCost" placeholder="Enter Cost Price" formControlName="productCost">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="number" class="form-control" id="productStock" placeholder="Enter stock quantity" formControlName="productStock">
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <div class="row text-md-end">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-outline-primary me-3" [disabled]="productForm.invalid"><i class="bi bi-save"></i> {{ isEditMode ? 'Update Product' : 'Save Product' }}</button>
+                <button type="submit" class="btn btn-outline-secondary" routerLink="/products"><i class="bi bi-arrow-left-circle"></i> Back to Product</button>
+            </div>
+        </div>
+    </form>
+</div>

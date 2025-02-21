@@ -1,0 +1,32 @@
+/* Custom styles for form groups */
+.form-group {
+    background-color: rgb(227, 227, 227); /* Light gray background */
+    padding: 10px; /* Add some padding for better spacing */
+    border-radius: 4px; /* Rounded corners */
+    margin-bottom: 16px; /* Add margin between form groups */
+  }
+  
+  /* Custom styles for input fields */
+  .form-control {
+    background-color: transparent; /* Make input background transparent */
+    border: none; /* Remove default border */
+    outline: none; /* Remove outline on focus */
+    box-shadow: none; /* Remove box shadow */
+    padding: 8px; /* Add padding for better spacing */
+  }
+  
+  /* Remove outline on focus */
+  .form-control:focus {
+    outline: none; /* Remove outline on focus */
+    box-shadow: none; /* Remove box shadow on focus */
+  }
+  
+  /* Optional: Add a border-bottom for better visual separation */
+  .form-control {
+    border-bottom: 1px solid #ccc; /* Light gray border at the bottom */
+  }
+  
+  /* Optional: Change border color on focus */
+  .form-control:focus {
+    border-bottom: 1px solid #007bff; /* Blue border on focus */
+  }
