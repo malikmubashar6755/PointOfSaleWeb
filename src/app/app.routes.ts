@@ -7,10 +7,14 @@ import { CategoriesComponent } from './content/categories/categories.component';
 import { ProductCreateComponent } from './content/product-create/product-create.component';
 import { CategoryCreateComponent } from './content/category-create/category-create.component';
 import { CustomerCreateComponent } from './content/customer-create/customer-create.component';
+import { SupplierComponent } from './content/supplier/supplier.component';
+import { InventoryComponent } from './content/inventory/inventory.component';
 
 export const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'sales', component: SaleComponent },
+    { path: 'suppliers', component: SupplierComponent },
+    { path: 'inventory', component: InventoryComponent },
     { path: 'products', component: ProductComponent },
     { path: 'customers', component: CustomerComponent },
     {path : 'categories', component: CategoriesComponent},
